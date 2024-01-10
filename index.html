@@ -1,1 +1,25 @@
-<h1>hello</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Image Center</title>
+<style>
+  body, html {
+    height: 100%;
+    margin: 0;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  img {
+    max-width: 100%;
+    max-height: 100vh; /* This ensures the image is never taller than the viewport */
+  }
+</style>
+</head>
+<body>
+<img src="path_to_your_image/logo_copy.png" alt="Centered Image">
+</body>
+</html>
