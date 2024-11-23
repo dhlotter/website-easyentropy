@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Infinity Train</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: #000000;
+        }
+
+        .train-track {
+            width: 800px;
+            height: 400px;
+        }
+
+        .train {
+            stroke-width: 40px;
+            fill: none;
+            stroke-linecap: round;
+            /* The total path length is 1600px, divided into 5 equal segments */
+            stroke-dasharray: 320, 320, 320, 320, 320;
+            animation: moveTrain 5s linear infinite;
+        }
+
+        /* Create gradient for the 5 segments */
+        #trainGradient stop:nth-child(1) { stop-color: yellow; }      /* Locomotive */
+        #trainGradient stop:nth-child(2) { stop-color: rgb(60, 159, 200); }  /* Blue cart */
+        #trainGradient stop:nth-child(3) { stop-color: rgb(240, 175, 84); }  /* Orange cart */
+        #trainGradient stop:nth-child(4) { stop-color: rgb(238, 87, 91); }   /* Pink cart */
+        #trainGradient stop:nth-child(5) { stop-color: rgb(85, 84, 136); }   /* Purple cart */
+        #trainGradient stop:nth-child(6) { stop-color: yellow; }      /* Back to locomotive */
+
+        @keyframes moveTrain {
+            to {
+                stroke-dashoffset: -1600;
+            }
+        }
+    </style>
+</head>
+<body>
+    <svg class="train-track" viewBox="0 0 800 400">
+        <defs>
+            <linearGradient id="trainGradient" gradientUnits="userSpaceOnUse" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" />
+                <stop offset="20%" />
+                <stop offset="40%" />
+                <stop offset="60%" />
+                <stop offset="80%" />
+                <stop offset="100%" />
+            </linearGradient>
+        </defs>
+        
+        <path class="train" 
+              stroke="url(#trainGradient)"
+              d="M 200 200 C 200 100, 300 100, 400 200 C 500 300, 600 300, 600 200 C 600 100, 500 100, 400 200 C 300 300, 200 300, 200 200"/>
+    </svg>
+</body>
+</html>

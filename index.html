@@ -1,29 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>easyentropy</title>
-<link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/dhlotter/website/master/favicon.ico">
-<style>
-  body, html {
-    height: 100%;
-    margin: 0;
-    background-color: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  img {
-    max-width: 100%;
-    max-height: 100vh;
-  }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
+    <title>EasyEntropy - Digital Innovation Solutions</title>
+    <meta name="title" content="EasyEntropy - Digital Innovation Solutions">
+    <meta name="description" content="Innovative digital solutions and creative technology services. Explore our dynamic approach to digital transformation and creative technology solutions.">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://easyentropy.com/">
+    <meta property="og:title" content="EasyEntropy - Digital Innovation Solutions">
+    <meta property="og:description" content="Innovative digital solutions and creative technology services. Explore our dynamic approach to digital transformation and creative technology solutions.">
+    <meta property="og:image" content="https://easyentropy.com/images/logo.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://easyentropy.com/">
+    <meta property="twitter:title" content="EasyEntropy - Digital Innovation Solutions">
+    <meta property="twitter:description" content="Innovative digital solutions and creative technology services. Explore our dynamic approach to digital transformation and creative technology solutions.">
+    <meta property="twitter:image" content="https://easyentropy.com/images/logo.png">
+    
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        img {
+            max-width: 60%;
+            max-height: 60vh;
+            object-fit: contain;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+        img.loaded {
+            opacity: 1;
+        }
+        .loader {
+            border: 3px solid #333;
+            border-top: 3px solid #fff;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            position: absolute;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
 </head>
 <body>
-<!-- <img src="https://raw.githubusercontent.com/dhlotter/website/master/logo.png" alt="Centered Logo"> -->
-<img src="https://raw.githubusercontent.com/dhlotter/website/master/background.jpeg" alt="Centered Logo">
-<</body>
+    <div class="loader" id="loader"></div>
+    <img 
+        src="images/logo-fade-blotch-gifscale.gif" 
+        alt="EasyEntropy Digital Innovation Animation - Dynamic visual representation of our creative technology solutions"
+        loading="lazy"
+        onload="this.classList.add('loaded'); document.getElementById('loader').classList.add('hidden');"
+    >
+</body>
 </html>
-
-
