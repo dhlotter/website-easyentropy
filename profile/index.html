@@ -6,7 +6,7 @@
     <title>Hermann Lotter - Profile</title>
     <base href="/profile/">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-yaml/dist/js-yaml.min.js"></script>
 </head>
@@ -15,47 +15,25 @@
         <div class="grid grid-cols-1 lg:grid-cols-7">
             <!-- Profile Section - Narrow Sidebar -->
             <div class="lg:col-span-2 p-4 lg:h-screen">
-                <div class="lg:sticky lg:top-4 h-full">
+                <div class="lg:sticky lg:top-4 h-full bg-[#1A1C1E] p-8 rounded-lg shadow-lg">
                     <!-- Profile Image -->
-                    <div class="bg-[#1A1C1E] p-8 rounded-lg shadow-lg h-full">
-                        <div class="flex flex-col items-center">
-                            <div>
-                                <div class="relative h-32 w-32 mx-auto overflow-hidden rounded-full mb-8">
-                                    <img
-                                        src="assets/images/profile.jpg"
-                                        alt="Profile"
-                                        class="h-full w-full object-cover"
-                                        onerror="this.src='https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=2080&auto=format&fit=crop'"
-                                    />
-                                </div>
-                                <div class="max-w-lg">
-                                    <div id="profile-content" class="prose prose-invert max-w-none text-gray-400 text-left whitespace-pre-line"></div>
-                                    <div class="flex justify-center space-x-4 mt-8">
-                                        <a
-                                            href="https://linkedin.com/in/dhlotter"
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            class="inline-block p-2 text-blue-600"
-                                        >
-                                            <i class="fab fa-linkedin text-xl"></i>
-                                        </a>
-                                        <a
-                                            href="https://github.com/dhlotter"
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            class="inline-block p-2 text-white"
-                                        >
-                                            <i class="fab fa-github text-xl"></i>
-                                        </a>
-                                        <button
-                                            onclick="toggleContactForm()"
-                                            class="inline-block p-2 text-red-400"
-                                        >
-                                            <i class="fas fa-envelope text-xl"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
+                    <div class="flex flex-col items-center">
+                        <div class="relative h-32 w-32 mx-auto overflow-hidden rounded-full mb-6">
+                            <img src="assets/images/profile.jpg" alt="Profile Image" class="h-full w-full object-cover">
+                        </div>
+                        <h1 class="text-2xl font-bold mb-2">Hermann Lotter</h1>
+                        <p class="text-gray-400 mb-4">Web Developer</p>
+                        <div id="profile-content" class="prose prose-invert max-w-none text-gray-400 text-left whitespace-pre-line mb-6"></div>
+                        <div class="flex justify-center space-x-4">
+                            <a href="https://linkedin.com/in/dhlotter" target="_blank" rel="noopener noreferrer" class="inline-block p-2 text-blue-600">
+                                <i class="fab fa-linkedin text-xl"></i>
+                            </a>
+                            <a href="https://github.com/dhlotter" target="_blank" rel="noopener noreferrer" class="inline-block p-2 text-white">
+                                <i class="fab fa-github text-xl"></i>
+                            </a>
+                            <button onclick="toggleContactForm()" class="inline-block p-2 text-red-400">
+                                <i class="fas fa-envelope text-xl"></i>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -63,33 +41,33 @@
 
             <!-- Main Content - Projects -->
             <div class="lg:col-span-5 p-4">
-                <div class="max-w-4xl">
+                <div class="max-w-4xl mx-auto">
                     <!-- Contact Form (Initially Hidden) -->
-                    <div id="contact-form" class="hidden bg-[#23262A] rounded-lg p-6 mb-8">
+                    <div id="contact-form" class="hidden bg-[#1A1C1E] rounded-lg p-6 mb-8 shadow-lg">
                         <h3 class="text-xl font-semibold text-white mb-4">Contact Me</h3>
                         <form onsubmit="handleSubmit(event)" class="space-y-4">
                             <div>
-                                <label for="name" class="block text-gray-400 mb-2">Name</label>
-                                <input type="text" id="name" required class="w-full p-2 rounded bg-[#1A1C1E] text-white border border-gray-700 focus:border-blue-500 focus:outline-none">
+                                <label for="name" class="block text-sm font-medium text-gray-400">Name</label>
+                                <input type="text" id="name" name="name" required class="mt-1 block w-full rounded-md bg-[#23262A] border-gray-700 text-white focus:border-blue-500 focus:ring-blue-500">
                             </div>
                             <div>
-                                <label for="email" class="block text-gray-400 mb-2">Email</label>
-                                <input type="email" id="email" required class="w-full p-2 rounded bg-[#1A1C1E] text-white border border-gray-700 focus:border-blue-500 focus:outline-none">
+                                <label for="email" class="block text-sm font-medium text-gray-400">Email</label>
+                                <input type="email" id="email" name="email" required class="mt-1 block w-full rounded-md bg-[#23262A] border-gray-700 text-white focus:border-blue-500 focus:ring-blue-500">
                             </div>
                             <div>
-                                <label for="message" class="block text-gray-400 mb-2">Message</label>
-                                <textarea id="message" required rows="4" class="w-full p-2 rounded bg-[#1A1C1E] text-white border border-gray-700 focus:border-blue-500 focus:outline-none"></textarea>
+                                <label for="message" class="block text-sm font-medium text-gray-400">Message</label>
+                                <textarea id="message" name="message" rows="4" required class="mt-1 block w-full rounded-md bg-[#23262A] border-gray-700 text-white focus:border-blue-500 focus:ring-blue-500"></textarea>
                             </div>
-                            <button type="submit" class="w-full bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition-colors">Send Message</button>
+                            <div>
+                                <button type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                                    Send Message
+                                </button>
+                            </div>
                         </form>
                     </div>
                     
-                    <div class="grid grid-cols-1 gap-6">
-                        <!-- Projects Section -->
-                        <div id="projects-container" class="space-y-8">
-                            <!-- Will be populated by JavaScript -->
-                        </div>
-                    </div>
+                    <h2 class="text-3xl font-bold mb-8">Featured Projects</h2>
+                    <div id="projects-container" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
                 </div>
             </div>
         </div>
@@ -99,50 +77,79 @@
         async function loadContent() {
             try {
                 // Load profile content
-                const profileResponse = await fetch('profile.md');
+                const profileResponse = await fetch('./profile.md');
+                if (!profileResponse.ok) {
+                    throw new Error(`HTTP error! status: ${profileResponse.status}`);
+                }
                 const profileMarkdown = await profileResponse.text();
                 const profileHtml = marked.parse(profileMarkdown);
-                document.getElementById('profile-content').innerHTML = profileHtml;
+                const profileContent = document.getElementById('profile-content');
+                if (profileContent) {
+                    profileContent.innerHTML = profileHtml;
+                }
 
                 // Load project files from JSON
-                const projectResponse = await fetch('projects.json?_=' + new Date().getTime());
+                const projectResponse = await fetch('./projects.json');
+                if (!projectResponse.ok) {
+                    throw new Error(`HTTP error! status: ${projectResponse.status}`);
+                }
                 const projectData = await projectResponse.json();
 
                 const projectsContainer = document.getElementById('projects-container');
+                if (!projectsContainer) {
+                    throw new Error('Projects container not found');
+                }
                 
                 for (const projectFile of projectData.projects) {
                     try {
-                        const response = await fetch(projectFile + '?_=' + new Date().getTime());
+                        const response = await fetch(projectFile);
+                        if (!response.ok) {
+                            console.error(`Failed to load project: ${projectFile}`);
+                            continue;
+                        }
                         const markdown = await response.text();
                         
                         // Parse front matter and markdown
                         const contentParts = markdown.split('---');
-                        const frontMatter = jsyaml.load(contentParts[1] || '');
-                        const htmlContent = marked.parse(contentParts.slice(2).join('---'));
+                        if (contentParts.length < 3) {
+                            console.error(`Invalid markdown format in ${projectFile}`);
+                            continue;
+                        }
+                        const frontMatter = jsyaml.load(contentParts[1]);
+                        const htmlContent = marked.parse(contentParts[2] || '');
 
                         // Create project card
                         const projectCard = document.createElement('a');
-                        projectCard.href = frontMatter.link || '#';
+                        projectCard.href = frontMatter?.link || '#';
                         projectCard.target = '_blank';
                         projectCard.rel = 'noopener noreferrer';
-                        projectCard.className = 'block bg-[#23262A] rounded-lg p-6 transition-all duration-300 hover:bg-[#2C2F33] no-underline';
+                        projectCard.className = 'block bg-[#1A1C1E] rounded-lg p-6 shadow-lg transition-all duration-300 hover:bg-[#23262A] hover:shadow-xl no-underline';
+                        
+                        const technologies = frontMatter?.technologies || [];
+                        const techBadges = technologies.map(tech => 
+                            `<span class="inline-block bg-[#23262A] text-gray-400 text-xs px-2 py-1 rounded mr-2 mb-2">${tech}</span>`
+                        ).join('');
+                        
                         projectCard.innerHTML = `
-                            <h3 class="text-xl font-semibold text-white mb-3">${frontMatter.title || 'Untitled Project'}</h3>
-                            <div class="prose max-w-none text-gray-400 leading-relaxed">
+                            <h3 class="text-xl font-semibold text-white mb-3">${frontMatter?.title || 'Untitled Project'}</h3>
+                            <div class="text-gray-400 text-sm mb-4">${frontMatter?.date || ''}</div>
+                            <div class="mb-4">${techBadges}</div>
+                            <div class="prose prose-invert max-w-none text-gray-400 leading-relaxed">
                                 ${htmlContent}
                             </div>
                         `;
-                        
                         projectsContainer.appendChild(projectCard);
                     } catch (error) {
-                        console.error(`Error loading project ${projectFile}:`, error);
+                        console.error('Error loading project:', error);
                     }
                 }
-
             } catch (error) {
                 console.error('Error loading content:', error);
             }
         }
+
+        // Load content when the page loads
+        document.addEventListener('DOMContentLoaded', loadContent);
     </script>
     <script>
         function toggleContactForm() {
@@ -166,10 +173,6 @@
             const body = `From: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
             window.location.href = `mailto:hermann@easyentropy.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
         }
-    </script>
-    <script>
-        // Load content when the page loads
-        document.addEventListener('DOMContentLoaded', loadContent);
     </script>
 </body>
 </html>
